@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.container {
+    max-width: 1121px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1120px) {
+    .container{
+        justify-content: space-around;
+    }
+}

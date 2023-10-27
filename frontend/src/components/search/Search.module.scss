@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+.search {
+    max-width: 1120px;
+    width: 100vw;
+    margin: 0 auto;
+    margin-top: 64px;
+    position: relative;
+
+    input {
+        width: 100%;
+        height: 48px;
+        padding-left: 18px;
+        border-radius: 50px;
+        border: 1px solid $search-border-color;
+        font-size: 20px;
+        font-family: 'Proxima-Nova';
+        font-weight: 400;
+        transform: none;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .submit {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 12px;
+        right: 24px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .search {
+        width: 80vw;
+    }
+}

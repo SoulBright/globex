@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+
+.report_item {
+    width: 500px;
+    height: 468px;
+    display: flex;
+    flex-direction: column;
+    top: 126px;
+    left: 390px;
+    padding: 24px;
+    gap: 40px;
+    border-radius: 16px;
+    background-color: $background-color;
+    box-shadow: $box-shadow;
+
+    h2 {
+        margin-left: 24px;
+        color: $title-font-color;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+}
+
+.info {
+    margin: 0 24px;
+    gap: 40px;
+    display: flex;
+}
+
+.info_title,
+.info_items,
+.additional {
+    font-weight: 400;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.info_title {
+    color: $title-font-color;
+    font-size: 18px;
+}
+
+.info_items {
+    color: $content-font-color;
+    font-size: 16px;
+}
+
+.additional {
+    margin: 0 24px;
+    gap: 12px;
+    color: $title-font-color;
+    font-size: 18px;
+
+    span {
+        font-size: 16px;
+        line-height: 18px;
+        color: $content-font-color;
+    }
+}

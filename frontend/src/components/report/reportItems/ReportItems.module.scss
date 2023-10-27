@@ -1,0 +1,45 @@
+@import '../../../styles/variables.scss';
+
+.container {
+    width: 357px;
+    height: 357px;
+    padding: 24px;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 16px;
+    box-shadow: $box-shadow;
+    cursor: pointer;
+
+    h2 {
+        color: $title-font-color;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item_info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .svg {
+        left: 5px;
+    }
+
+    span {
+        color: $content-font-color;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}
+

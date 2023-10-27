@@ -1,0 +1,29 @@
+@import '~normalize.css';
+
+@font-face {
+    font-family: 'Proxima-Nova';
+    src: url('../assets/fonts/proximanova_regular.ttf');
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+#root {
+    font-family: 'Proxima-Nova';
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
