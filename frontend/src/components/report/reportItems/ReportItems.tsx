@@ -6,12 +6,12 @@ import { ReactComponent as Phone } from '../../../assets/icons/phone_ico.svg';
 import { ReactComponent as Mail } from '../../../assets/icons/mail_ico.svg';
 
 interface IReportItemsProps {
-    name: string,
-    phone: string,
-    mail: string
+    email: string;
+    name: string;
+    phone: string
 }
 
-export const ReportItems: React.FC<IReportItemsProps> = ({ name, phone, mail }) => {
+export const ReportItems: React.FC<IReportItemsProps> = ({ name, phone, email }) => {
     return (
         <div>
             <div className={s.container}>
@@ -23,7 +23,7 @@ export const ReportItems: React.FC<IReportItemsProps> = ({ name, phone, mail }) 
                     </div>
                     <div className={s.item_info}>
                         <Mail className={s.svg} />
-                        <span>{mail}</span>
+                        <span>{email}</span>
                     </div>
                 </div>
             </div>
