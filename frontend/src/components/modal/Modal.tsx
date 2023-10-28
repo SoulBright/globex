@@ -12,11 +12,13 @@ interface IModalProps {
 }
 
 export const Modal: React.FC<IModalProps> = ({ isOpen, onClose, children }) => {
+  const nodeRef = React.useRef(null);
+
   return (
     <>
-      <Transition in={isOpen} timeout={350} unmountOnExit={true}>
+      <Transition in={isOpen} timeout={350} unmountOnExit={true} nodeRef={nodeRef}>
         {(state) => (
-          <div className={`modal modal--${state}`}>
+          <div className={`modal modal--${state}`} ref={nodeRef}>
             <div className='modal_wrapper' onClick={() => onClose(false)}>
               <div className='modal_content'>
                 <IconClose className='modal_close_button' onClick={() => onClose(false)} />
@@ -25,7 +27,7 @@ export const Modal: React.FC<IModalProps> = ({ isOpen, onClose, children }) => {
             </div>
           </div>
         )}
-      </Transition >
+      </Transition>
     </>
   );
 };
