@@ -7,6 +7,12 @@
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
+
+    p {
+        color: $error-font-color;
+        font-size: clamp(24px, 5vw, 48px);
+        font-weight: 700;
+    }
 }
 
 @media screen and (max-width: 1120px) {
