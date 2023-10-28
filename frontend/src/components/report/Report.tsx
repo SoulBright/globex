@@ -8,19 +8,19 @@ import { Modal } from '../modal/Modal';
 import { UserDetail } from '../userDetail/UserDetail';
 import { Search } from '../search/Search';
 
-import APIService from '../../API/UserService'
+import APIService from '../../API/UserService';
 
-interface IReportProps {
-}
+interface IReportProps {}
 
 export const Report: React.FC<IReportProps> = (props) => {
-  const [modalMenuIsOpen, setModalMenuIsOpen] = React.useState(false);
-  const [UserList, setUserList] = React.useState<TypeReports[]>([]);
-  const [showMessage, setShowMessage] = React.useState(false);
+  const [modalIsOpen, setModalIsOpen] = React.useState(false); //состояние модального окна
+  const [UserList, setUserList] = React.useState<TypeReports[]>([]); // Список пользователей
+  const [showMessage, setShowMessage] = React.useState(false); // Таймаут отображения сообщения, если пользователи не найдены при загрузке страницы
+  const [selectedItem, setSelectedItem] = React.useState<TypeReports | null>(null); // состояние для отслеживания выбранного пользователя
 
   const handleSearchResult = (result: TypeReports[]) => {
     setUserList(result);
-  };
+  }; // функция передающая результат поиска в переменную UserList
 
   React.useEffect(() => {
     fetchMenu();
@@ -29,7 +29,7 @@ export const Report: React.FC<IReportProps> = (props) => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  },[])
+  },[]) // Хук для отображение списка пользователей при загрузке страницы
 
   const fetchMenu = async (): Promise<void> => {
     try {
@@ -38,7 +38,13 @@ export const Report: React.FC<IReportProps> = (props) => {
     } catch (error) {
       console.log('Ошибка при получении данных пользователей:', error);
     }
+  }; // Функция получения списка пользователей при загрузке страницы
+
+  const handleItemClick = (item: TypeReports) => {
+    setSelectedItem(item);
+    setModalIsOpen(true);
   };
+
 
   return (
     <>
@@ -46,8 +52,8 @@ export const Report: React.FC<IReportProps> = (props) => {
       <div className={s.container}>
         {UserList.length > 0 ? (
           UserList.map((item) => (
-            <div key={item.phone} className={s.report_item} onClick={() => setModalMenuIsOpen(true)}>
-              <ReportItems name={item.name} phone={item.phone} email={item.email} />
+            <div key={item.phone} className={s.report_item}>
+              <ReportItems name={item.name} phone={item.phone} email={item.email} onClick={() => handleItemClick(item)}/>
             </div>
           ))
         ) :showMessage ? (
@@ -55,8 +61,8 @@ export const Report: React.FC<IReportProps> = (props) => {
         ):null}
       </div>
 
-      <Modal isOpen={modalMenuIsOpen} onClose={() => setModalMenuIsOpen(false)}>
-        <UserDetail />
+      <Modal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
+        <UserDetail selectedItem={selectedItem}/>
       </Modal>
     </>
   );

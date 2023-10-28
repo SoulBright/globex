@@ -8,25 +8,26 @@ import { ReactComponent as Mail } from '../../../assets/icons/mail_ico.svg';
 interface IReportItemsProps {
     email: string;
     name: string;
-    phone: string
-}
-
-export const ReportItems: React.FC<IReportItemsProps> = ({ name, phone, email }) => {
+    phone: string;
+    onClick: () => void;
+  }
+  
+  export const ReportItems: React.FC<IReportItemsProps> = ({ name, phone, email, onClick }) => {
     return (
-        <div>
-            <div className={s.container}>
-                <h2>{name}</h2>
-                <div className={s.info}>
-                    <div className={s.item_info}>
-                        <Phone className={s.svg} />
-                        <span>{phone}</span>
-                    </div>
-                    <div className={s.item_info}>
-                        <Mail className={s.svg} />
-                        <span>{email}</span>
-                    </div>
-                </div>
+      <div>
+        <div className={s.container} onClick={onClick}>
+          <h2>{name}</h2>
+          <div className={s.info}>
+            <div className={s.item_info}>
+              <Phone className={s.svg} />
+              <span>{phone}</span>
             </div>
+            <div className={s.item_info}>
+              <Mail className={s.svg} />
+              <span>{email}</span>
+            </div>
+          </div>
         </div>
+      </div>
     );
-};
+  };

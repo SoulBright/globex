@@ -1,8 +1,8 @@
 @import '../../styles/variables.scss';
 
 .report_item {
-    width: 500px;
-    height: 468px;
+    min-width: 350px;
+    min-height: 468px;
     display: flex;
     flex-direction: column;
     top: 126px;
